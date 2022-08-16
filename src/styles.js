@@ -79,7 +79,6 @@ const styles = (theme) => ({
   wrapper: {
     height: '100%',
     width: '100%',
-    padding:50,
     overflow: 'auto',
     '&::-webkit-scrollbar-button': {
       display: 'none',

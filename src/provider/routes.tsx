@@ -1,18 +1,30 @@
-import React, { Suspense } from "react";
-import { Switch, Route, withRouter, Redirect } from "react-router-dom";
+import React, { Suspense, useEffect } from "react";
+import {
+  Switch,
+  Route,
+  withRouter,
+  Redirect,
+  useLocation,
+} from "react-router-dom";
 import { SHOULD_NOT_AUTH, SHOULD_AUTH } from "config/enums";
 import { read } from "storage";
+import Login from "pages/auth/login";
 
-const Router = (props: any) => {
-  const { pages } = props;
+const Router = ({ pages, setLocation }: any) => {
   const token = read("token");
+  const location = useLocation();
+  useEffect(() => {
+    const page = pages.find((page: any) => page.path === location.pathname);
+    setLocation(page.layout);
+  }, [location]);
 
   return (
     <Suspense fallback={<>loading ...</>}>
       <Switch>
-        {pages.map((route: any) =>
+        {pages.map((route: any, key: number) =>
           route.guard === SHOULD_NOT_AUTH ? (
             <Route
+              key={key}
               exact={route.exact}
               path={route.path}
               component={() => {
@@ -23,6 +35,7 @@ const Router = (props: any) => {
             />
           ) : token ? (
             <Route
+              key={key}
               exact={route.exact}
               path={route.path}
               component={() => {
@@ -32,7 +45,14 @@ const Router = (props: any) => {
               }}
             />
           ) : (
-            <Redirect to="/auth/login" />
+            <Route
+            exact
+            path={"/auth/login"}
+            component={() => {
+              document.title = "Authenticated";
+              return <Login />;
+            }}
+          />
           )
         )}
       </Switch>

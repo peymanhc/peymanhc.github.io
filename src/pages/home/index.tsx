@@ -20,7 +20,7 @@ function Home({ classes }: Props) {
     }
   };
   return (
-    <div>
+    <div className={classes.root} >
       <Tabs
         defaultActiveKey="Ticket"
         className={classes.tabs}

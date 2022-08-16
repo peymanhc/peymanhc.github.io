@@ -9,6 +9,16 @@ export const Pages = [
     icon: "",
     render: () => lazy(() => import("pages/home")),
     guard: SHOULD_AUTH,
+    layout:true
+  },
+  {
+    title: "Authenticated",
+    path: "/auth/login",
+    exact: true,
+    icon: "",
+    render: () => lazy(() => import("pages/auth/login")),
+    guard: SHOULD_NOT_AUTH,
+    layout:false
   },
   {
     title: "NotFound",
@@ -17,5 +27,6 @@ export const Pages = [
     icon: "",
     render: () => lazy(() => import("pages/not-found")),
     guard: SHOULD_AUTH,
+    layout:true
   },
 ];
