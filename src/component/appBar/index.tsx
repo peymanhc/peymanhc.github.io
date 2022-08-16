@@ -5,11 +5,10 @@ import {
   InfoCircleOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
-import { useLocation, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { remove } from "storage";
 import style from "./style";
 import Icon from "component/icon";
-
 const { Text } = Typography;
 
 const AppBar = (props: any) => {

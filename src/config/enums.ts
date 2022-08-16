@@ -1,2 +1,0 @@
-export const SHOULD_NOT_AUTH = "SHOULD_NOT_AUTH";
-export const SHOULD_AUTH = "SHOULD_AUTH";

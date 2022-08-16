@@ -22,7 +22,7 @@ const Drawer = (props: any) => {
       {
         icon: "Flash",
         name: "برقی",
-        route: "/flash",
+        route: "/",
       },
       {
         icon: "Add_New_Contact",

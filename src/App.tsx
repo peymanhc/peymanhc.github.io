@@ -6,12 +6,11 @@ import styles from "./styles";
 import AppBar from "component/appBar";
 import Routes from "provider/routes";
 import { Pages } from "provider/pages";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import { read } from "storage";
 const App = (props: any) => {
   const { classes } = props;
   const [haslayout, setHaslayout] = useState<boolean>(false);
-
   return (
     <BrowserRouter>
       <main className={classes.app}>

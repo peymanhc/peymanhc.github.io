@@ -12,7 +12,7 @@ function Login({ classes }: Props) {
 
   const handleSubmitLogin = ()=>{
     store('token', "jwt-token");
-    history.push("/flash");
+    history.push("/");
   }
   return (
     <div className={classes.wrapper}>
