@@ -1,7 +1,8 @@
 {
-  "name": "mediana",
+  "name": "dashboard",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/peymanhc/peymanhc.github.io",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@persian-tools/persian-tools": "^3.2.1",
@@ -50,7 +51,9 @@
     "start": "react-scripts start",
     "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build ",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
