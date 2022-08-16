@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkpeymanhc=self.webpackChunkpeymanhc||[]).push([[12],{3012:function(n,e,r){r.r(e),r.d(e,{default:function(){return c}});r(7313);var u=(0,r(7602).Z)((function(n){return{root:{padding:48}}})),t=r(6417);var c=u((function(n){return function(n){if(null==n)throw new TypeError("Cannot destructure undefined")}(n),(0,t.jsx)("div",{children:"NotFound"})}))}}]);
