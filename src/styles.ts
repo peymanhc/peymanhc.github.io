@@ -40,7 +40,7 @@ const styles = (theme: any) => ({
     height: '100%',
     width: '100%',
     overflow: 'auto',
-    
+    background:theme.palette.colors.grey[100],
     '&::-webkit-scrollbar-button': {
       display: 'none',
     },

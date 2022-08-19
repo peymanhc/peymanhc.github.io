@@ -6,7 +6,10 @@ import { NavLink, useLocation } from "react-router-dom";
 import Icon from "component/icon";
 //! configs
 import style from "./style";
-
+import BottomNavigationBar from "component/bottomNavigationBar";
+import { useSelector } from "react-redux";
+import { StateNetwork } from "store/index.reducer";
+import { AppConfig } from "store/app/app.reducer";
 
 interface DrawerState {
   icon?: string;
@@ -44,9 +47,21 @@ const Drawer = (props: any) => {
         name: "بی تی اس",
         route: "/bts",
       },
+      {
+        icon: "Managment",
+        name: "Dai",
+        route: "/shit",
+      },
+      {
+        icon: "Map",
+        name: "mamamedi",
+        route: "/new",
+      },
     ]);
   }, []);
-
+  const { isMobile } = useSelector<StateNetwork, AppConfig>(
+    (state) => state.appConfig
+  );
   return (
     <div className={classes.root}>
       <Menu mode="inline" theme="light" className={classes.sideMenu}>
@@ -73,6 +88,7 @@ const Drawer = (props: any) => {
           </Menu.Item>
         ))}
       </Menu>
+      {isMobile && <BottomNavigationBar routes={drawerList} />}
     </div>
   );
 };

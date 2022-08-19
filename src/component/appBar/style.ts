@@ -110,11 +110,7 @@ const styles = (theme: any) => ({
       color: `${theme.palette.secoundary}`,
     },
   },
-  '@media screen and (max-width:480px)': {
-    root: {
-      height: 56,
-    },
-  },
+
   quickAccess: {
     width: 250,
     '& li': {
@@ -146,7 +142,11 @@ const styles = (theme: any) => ({
       color: `${theme.palette.secoundary}`,
     },
   },
-  quickAccessDropdown: {},
+  '@media screen and (max-width:480px)': {
+    root: {
+      display:"none"
+    },
+  },
 });
 
 export default style(styles);

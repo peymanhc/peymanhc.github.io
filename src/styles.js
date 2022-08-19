@@ -15,6 +15,7 @@ const styles = (theme) => ({
       background: '#20bf6b',
     },
     body: {
+     
       "& .ant-tabs-tab-btn": {
         color: theme.palette.colors.grey[700],
       },
@@ -113,9 +114,10 @@ const styles = (theme) => ({
     alignItems: 'center',
     background: theme.palette.white,
   },
-  '@media screen and (max-width:480px)': {
+  '@media screen and (max-width:992px)': {
     app: {
       background: theme.palette.colors.grey[100],
+      margin:`calc(${ theme.palette.hedaerMobileSize}) 0`
     },
   },
 });

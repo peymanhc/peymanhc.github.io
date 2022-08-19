@@ -5,6 +5,7 @@ import { ThemeProvider } from "react-jss";
 const Style = (mode: any, direction: any) => ({
   direction: direction,
   palette: {
+    hedaerMobileSize: "56px",
     mode,
     white: "#fff",
     black: "#000",
@@ -35,7 +36,8 @@ const Style = (mode: any, direction: any) => ({
         }
       : {
           primary: "green",
-          secondary: "black",
+          secondary: "rgb(0, 41, 0)",
+          third: "rgb(241, 248, 236)",
           colors: {
             red: {
               100: "#fff5f5",
@@ -54,7 +56,7 @@ const Style = (mode: any, direction: any) => ({
               900: "#1a1a1a",
             },
             green: {
-              100: "#03a40323",
+              100: "#dcf3dc",
               200: "#03a40336",
               300: "#03a40355",
               400: "#03a4036e",

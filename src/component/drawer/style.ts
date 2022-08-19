@@ -97,7 +97,7 @@ const styles = (theme: any) => ({
     display: "none",
   },
   "@media screen and (max-width:480px)": {
-    root: {
+    sideMenu: {
       display: "none",
     },
   },

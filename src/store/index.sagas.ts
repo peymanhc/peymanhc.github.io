@@ -1,4 +1,5 @@
 import { all, fork } from 'redux-saga/effects';
+import AppSagas from './app/app.sagas';
 // Sagas entities
 /**
  * rootSaga
@@ -6,7 +7,6 @@ import { all, fork } from 'redux-saga/effects';
  */
 export default function* root(): any {
   return yield all([
-
-
+    fork(AppSagas),
   ]);
 }

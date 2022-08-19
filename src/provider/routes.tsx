@@ -1,5 +1,6 @@
 import Login from "pages/auth/login";
 import NotFound from "pages/not-found";
+import Splash from "pages/splash";
 import React, { Suspense, useEffect } from "react";
 import {
   Switch,
@@ -18,7 +19,7 @@ const Router = ({ pages, setLocation }: any) => {
   }, [location]);
 
   return (
-    <Suspense fallback={<>loading ...</>}>
+    <Suspense fallback={<Splash/>}>
       <Switch>
         {!token && location?.pathname == "/auth/login" ? (
           <Login />

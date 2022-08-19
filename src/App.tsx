@@ -8,13 +8,42 @@ import Routes from "provider/routes";
 import { Pages } from "provider/pages";
 import { useState, useEffect } from "react";
 import { read } from "storage";
+import useApp from "hooks/app.hooks";
+import { useSelector } from "react-redux";
+import { StateNetwork } from "store/index.reducer";
+import { AppConfig } from "store/app/app.reducer";
+import BottomNavigationBar from "component/bottomNavigationBar";
 const App = (props: any) => {
   const { classes } = props;
   const [haslayout, setHaslayout] = useState<boolean>(false);
+  const [width, setwidth] = useState(
+    typeof window !== "undefined" && window.innerWidth
+  );
+
+  const { isMobileView } = useApp();
+
+  useEffect(() => {
+    function handleResize() {
+      setwidth(window.innerWidth);
+    }
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  useEffect(() => {
+    if (width < 992) {
+      isMobileView(true);
+    } else {
+      isMobileView(false);
+    }
+  }, [width]);
+  const { isMobile } = useSelector<StateNetwork, AppConfig>(
+    (state) => state.appConfig
+  );
   return (
     <BrowserRouter>
       <main className={classes.app}>
-        {haslayout && <AppBar />}
+        {haslayout && (isMobile ? <BottomNavigationBar /> : <AppBar />)}
         <Layout
           style={{
             backgroundColor: "transparent",
