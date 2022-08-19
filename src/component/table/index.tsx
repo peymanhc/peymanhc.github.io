@@ -4,7 +4,7 @@ import { AppConfig } from "store/app/app.reducer";
 import { StateNetwork } from "store/index.reducer";
 import style from "./style";
 
-const index = ({
+const Table = ({
   columns,
   data,
   dataItems,
@@ -18,12 +18,12 @@ const index = ({
   handleLoadMore,
   classes
 }:any) => {
-  const [showMoreItems, setShowMore] = useState(null);
+  const [showMoreItems, setShowMore] = useState<boolean>(null);
   const { isMobile } = useSelector<StateNetwork, AppConfig>(
     (state) => state.appConfig
   );
-  const [NextPage, setNextPage] = useState(currentPage);
-  const [LoadingShowMore, setLoadingShowMore] = useState(false);
+  const [NextPage, setNextPage] = useState<number>(currentPage);
+  const [LoadingShowMore, setLoadingShowMore] = useState<boolean>(false);
   const handleShowMore = (e,i) => {
     e.stopPropagation();
     if (showMoreItems == i) {
@@ -51,7 +51,7 @@ const index = ({
       }
     }
   };
-  const [ActiveRing, setActiveRing] = useState(0);
+  const [ActiveRing, setActiveRing] = useState<number>(0);
   const handleChangeRing = (i) => {
     setActiveRing(i);
     handleLoadMore(currentPage, i);
@@ -181,4 +181,4 @@ const index = ({
     </div>
   );
 };
-export default style(index);
+export default style(Table);
