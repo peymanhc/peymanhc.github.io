@@ -5,7 +5,7 @@ import AppActions from "store/app/app.actions";
 
 function useApp() {
   const dispatch = useDispatch();
-  function isMobileView(value: number) {
+  function isMobileView(value: boolean) {
     const action = AppActions.isMobileView(value);
     dispatch(action);
   }

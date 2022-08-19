@@ -5,7 +5,6 @@
 import * as types from "./app.constants";
 // Utilities
 import { Action } from "store/index.reducer";
-import { InitialData } from "types/initial";
 import { merge } from "ramda";
 
 export interface AppConfig {

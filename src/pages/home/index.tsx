@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Tabs, Badge } from "antd";
+import { Tabs} from "antd";
 
 import style from "./style";
 import { locale } from "config/string";

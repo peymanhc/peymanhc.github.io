@@ -12,8 +12,13 @@ import {
   SettingOutlined,
 } from "@ant-design/icons";
 import { goBack } from "helpers/history";
-const BottomNavigation = (props: any) => {
-  const { classes, routes } = props;
+
+interface Props {
+  classes: any;
+  routes?: any;
+}
+
+const BottomNavigation = ({ classes, routes }: Props) => {
   const history = useHistory();
   const location = useLocation();
   const [showMore, setShowMore] = useState(false);
@@ -25,7 +30,7 @@ const BottomNavigation = (props: any) => {
   const handleShowMoreLinks = () => {
     setShowMore(!showMore);
   };
-  const [activeTab, setactiveTab] = useState(null);
+  const [activeTab, setactiveTab] = useState<any>(null);
   useEffect(() => {
     const activeTab = routes?.find((route: any) => {
       return location.pathname === route.route;

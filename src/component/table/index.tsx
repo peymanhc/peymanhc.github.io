@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { AppConfig } from "store/app/app.reducer";
 import { StateNetwork } from "store/index.reducer";
@@ -18,7 +18,7 @@ const Table = ({
   handleLoadMore,
   classes
 }:any) => {
-  const [showMoreItems, setShowMore] = useState<boolean>(null);
+  const [showMoreItems, setShowMore] = useState<boolean | any>(false);
   const { isMobile } = useSelector<StateNetwork, AppConfig>(
     (state) => state.appConfig
   );
@@ -26,7 +26,7 @@ const Table = ({
   const [LoadingShowMore, setLoadingShowMore] = useState<boolean>(false);
   const handleShowMore = (e,i) => {
     e.stopPropagation();
-    if (showMoreItems == i) {
+    if (showMoreItems === i) {
       setShowMore(null);
     } else {
       setShowMore(i);
@@ -73,7 +73,7 @@ const Table = ({
             {description?.map((item, i) => (
               <span
                 className={
-                  ActiveRing == i ? classes.activeringtext : classes.ringtext
+                  ActiveRing === i ? classes.activeringtext : classes.ringtext
                 }
                 onClick={() => handleChangeRing(i)}
                 key={i}
@@ -120,7 +120,7 @@ const Table = ({
                 {columns?.length > ShowmoreSlice && (
                   <li
                     style={{
-                      background: showMoreItems == value.id ? "#F1F8EC" : "",
+                      background: showMoreItems === value.id ? "#F1F8EC" : "",
                     }}
                     className={classes.showmoreItem}
                   >
@@ -128,7 +128,7 @@ const Table = ({
                       onClick={(e) => handleShowMore(e,value.id)}
                       className={classes.showmore}
                     >
-                      {showMoreItems == value.id ? (
+                      {showMoreItems === value.id ? (
                         <span>-</span>
                       ) : (
                         <span>+</span>
@@ -155,7 +155,7 @@ const Table = ({
                   </li>
                 ))}
               </ul>
-              {showMoreItems == value.id && (
+              {showMoreItems === value.id && (
                 <ul className={classes.moreLinks}>
                   {columns
                     ?.slice(ShowmoreSlice, columns?.length)

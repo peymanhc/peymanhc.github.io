@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { locale } from "config/string";
 import style from "./style";
 import { store } from "storage";

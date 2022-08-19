@@ -7,7 +7,6 @@ import AppBar from "component/appBar";
 import Routes from "provider/routes";
 import { Pages } from "provider/pages";
 import { useState, useEffect } from "react";
-import { read } from "storage";
 import useApp from "hooks/app.hooks";
 import { useSelector } from "react-redux";
 import { StateNetwork } from "store/index.reducer";

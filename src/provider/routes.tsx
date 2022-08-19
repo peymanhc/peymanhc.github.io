@@ -6,7 +6,6 @@ import {
   Switch,
   Route,
   withRouter,
-  Redirect,
   useLocation,
 } from "react-router-dom";
 import { read } from "storage";
@@ -15,13 +14,13 @@ const Router = ({ pages, setLocation }: any) => {
   const location = useLocation();
   useEffect(() => {
     const page = pages.find((page: any) => page.path === location.pathname);
-    setLocation(token && page?.path == undefined ? true : token && page?.layout);
+    setLocation(token && page?.path === undefined ? true : token && page?.layout);
   }, [location]);
 
   return (
     <Suspense fallback={<Splash/>}>
       <Switch>
-        {!token && location?.pathname == "/auth/login" ? (
+        {!token && location?.pathname === "/auth/login" ? (
           <Login />
         ) : token ? (
           pages.map((route: any, key: number) => (

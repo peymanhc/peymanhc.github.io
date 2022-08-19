@@ -11,14 +11,10 @@ import { useSelector } from "react-redux";
 import { StateNetwork } from "store/index.reducer";
 import { AppConfig } from "store/app/app.reducer";
 
-interface DrawerState {
-  icon?: string;
-  name?: string;
-  route?: string;
-}
+
 const Drawer = (props: any) => {
   const { classes } = props;
-  const [drawerList, setDrawerList] = useState<DrawerState[]>([]);
+  const [drawerList, setDrawerList] = useState<any>([]);
   const location = useLocation();
   useEffect(() => {
     setDrawerList([
