@@ -43,6 +43,7 @@ const Style = (mode: any, direction: any) => ({
               100: "#fff5f5",
               200: "#ffe3e3",
               300: "#ffc9c9",
+              900:"red"
             },
             grey: {
               100: "#f0f0f0",
@@ -67,6 +68,9 @@ const Style = (mode: any, direction: any) => ({
               800: "#03a403b5",
               900: "#03a403cd",
             },
+            blue:{
+              100: "#96DED1",
+            }
           },
         }),
   },

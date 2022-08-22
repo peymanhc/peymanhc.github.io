@@ -97,7 +97,7 @@ const styles = (theme: any) => ({
     },
   },
   calendarWrapper: {
-    border: `1px solid ${theme.palette.colors.grey[100]}`,
+    border: `1px solid ${theme.palette.colors.grey[200]}`,
     borderRadius: 8,
     padding: [20, 15],
   },

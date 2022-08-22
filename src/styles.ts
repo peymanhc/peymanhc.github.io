@@ -76,7 +76,7 @@ const styles = (theme: any) => ({
   },
   '@media screen and (max-width:480px)': {
     app: {
-      background: theme.palette.colors.grey[100],
+      background: theme.palette.colors.grey[200],
     },
   },
 });

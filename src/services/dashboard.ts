@@ -1,9 +1,9 @@
-import { get, post } from './api';
+import { get, post } from "./api";
 
 export default {
-  getCalendar: (model: any) =>
-    post({
-      api: '/calendar/get-month',
-      model,
+  getbarChart: () =>
+    get({
+      url: "/",
+      api: "mockbarchart.json",
     }),
 };

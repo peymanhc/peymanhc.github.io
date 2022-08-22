@@ -3,11 +3,11 @@
 import DashboardService from "services/dashboard";
 
 function useDashboard() {
-  function getDataCalendar(data: any) {
-    return DashboardService.getCalendar(data);
+  function getBarChart() {
+    return DashboardService.getbarChart();
   }
   return {
-    getDataCalendar,
+    getBarChart,
   };
 }
 

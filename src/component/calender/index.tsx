@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Col, Row, Typography } from "antd";
+import React, {  useState } from "react";
+import { Typography } from "antd";
 import { Calendar as CalendarJalali } from "antd-jalali";
 import dayjs from "dayjs";
 import { getBeautifulMonth } from "utils/persian-month";
 import updateLocale from "dayjs/plugin/updateLocale";
 import * as shamsi from "shamsi-date-converter";
 import style from "./style";
-import useDashboard from "hooks/dashboard.hook";
 import Icon from "component/icon";
 import Holidays from "date-holidays";
 
@@ -157,6 +156,10 @@ const Calender = (props: any) => {
     }
     return false;
   };
+  const handleChange = (value: any) => {
+    setCurrentDate(value);
+    props.onChange(value);
+  }
   return (
     <div className={classes.calendarWrapper}>
       <CalendarJalali
@@ -167,7 +170,7 @@ const Calender = (props: any) => {
         value={currentDate}
         locale={locales}
         disabledDate={(current: any) => disabledDate(current)}
-        onChange={(current: number) => setCurrentDate(current)}
+        onChange={(current: number) => handleChange(current)}
         validRange={handleRange()}
       />
     </div>

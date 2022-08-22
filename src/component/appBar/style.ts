@@ -5,7 +5,7 @@ const styles = (theme: any) => ({
     padding: 10,
     height: 72,
     zIndex: 100,
-    borderBottom: `1px solid ${theme.palette.colors.grey[100]}`,
+    borderBottom: `1px solid ${theme.palette.colors.grey[200]}`,
   },
   '@media screen and (max-width:767px)': {
     padding: [0, 0],
@@ -78,8 +78,8 @@ const styles = (theme: any) => ({
     },
   },
   menuBar: {
-    borderLeft: `${theme.palette.colors.grey[100]} !important`,
-    borderRight: `${theme.palette.colors.grey[100]} !important`,
+    borderLeft: `${theme.palette.colors.grey[200]} !important`,
+    borderRight: `${theme.palette.colors.grey[200]} !important`,
   },
   menuStyle: {
     backgroundColor: `${theme.palette.colors.grey[800]} !important`,

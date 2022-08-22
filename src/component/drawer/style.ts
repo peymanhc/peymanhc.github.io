@@ -13,7 +13,7 @@ const styles = (theme: any) => ({
     justifyContent: "flex-start",
     minWidth: 230,
     borderRadius: 0,
-    border: "1px solid #e0e0e0",
+    border: `1px solid ${theme.palette.colors.grey[200]}`,
     borderTop: "none",
   },
   menuItem: {

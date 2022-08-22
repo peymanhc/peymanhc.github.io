@@ -10,7 +10,7 @@ const styles = (theme: any) => ({
     alignItems: "center",
     justifyContent: "flex-start",
     gridGap: 20,
-    border: `1px solid ${theme.palette.colors.grey[100]}`,
+    border: `1px solid ${theme.palette.colors.grey[200]}`,
   },
   icon: {
     fontSize: 25,

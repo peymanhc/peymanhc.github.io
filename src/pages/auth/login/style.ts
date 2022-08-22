@@ -66,7 +66,7 @@ const styles = (theme: any) => ({
     pcon: {
       height: "100%",
       width: "80%",
-      backgroundColor: theme.palette.colors.grey[100],
+      backgroundColor: theme.palette.colors.grey[200],
       borderRadius: 0,
     },
     wrapper:{

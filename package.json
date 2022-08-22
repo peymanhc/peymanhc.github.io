@@ -5,6 +5,7 @@
   "homepage": "/",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@nivo/bar": "^0.79.1",
     "@persian-tools/persian-tools": "^3.2.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^11.1.0",
@@ -15,7 +16,7 @@
     "chart.js": "^3.6.2",
     "crypto-js": "^4.1.1",
     "date-holidays": "^3.16.4",
-    "dayjs": "^1.10.7",
+    "dayjs": "^1.11.5",
     "edit-json-file": "^1.6.0",
     "history": "^4.10.1",
     "jalaliday": "^2.3.0",
