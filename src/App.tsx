@@ -41,7 +41,11 @@ const App = (props: any) => {
   );
   return (
     <BrowserRouter>
-      <main className={classes.app}>
+      <main
+        className={[classes.app, haslayout && isMobile && classes.root].join(
+          "  "
+        )}
+      >
         {haslayout && (isMobile ? <BottomNavigationBar /> : <AppBar />)}
         <Layout
           style={{

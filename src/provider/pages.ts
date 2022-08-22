@@ -2,11 +2,19 @@ import { lazy } from "react";
 
 export const Pages = [
   {
-    title: "Home",
+    title: "contacts",
+    path: "/contacts",
+    exact: true,
+    icon: "",
+    render: () => lazy(() => import("pages/contacts")),
+    layout:true
+  },
+  {
+    title: "Dashboard",
     path: "/",
     exact: true,
     icon: "",
-    render: () => lazy(() => import("pages/home")),
+    render: () => lazy(() => import("pages/dashboard")),
     layout:true
   },
   {

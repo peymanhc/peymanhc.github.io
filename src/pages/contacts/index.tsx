@@ -10,7 +10,7 @@ const { TabPane } = Tabs;
 interface Props {
   classes: any;
 }
-function Home({ classes }: Props) {
+function Contact({ classes }: Props) {
   const [tabKey, setTabKey] = useState<string>("Ticket");
   const generateComponent = () => {
     switch (tabKey) {
@@ -109,4 +109,4 @@ function Home({ classes }: Props) {
   );
 }
 
-export default style(Home);
+export default style(Contact);

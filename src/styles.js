@@ -1,21 +1,25 @@
-import style from './provider/style';
-import './assets/fonts/font.css';
+import style from "./provider/style";
+import "./assets/fonts/font.css";
 
 const styles = (theme) => ({
-  '@global': {
-    
-    '&::-webkit-scrollbar-button': {
-      display: 'none',
+  "@global": {
+    "&::-webkit-scrollbar-button": {
+      display: "none",
     },
-    '&::-webkit-scrollbar': {
+    "&::-webkit-scrollbar": {
       width: 5,
     },
-    '&::-webkit-scrollbar-thumb': {
+    "&::-webkit-scrollbar-thumb": {
       borderRadius: 4,
-      background: '#20bf6b',
+      background: "#20bf6b",
     },
     body: {
-     
+      '& p': {
+        marginBottom: 0,
+      },
+      '& h4': {
+        marginBottom: 0,
+      },
       "& .ant-tabs-tab-btn": {
         color: theme.palette.colors.grey[700],
       },
@@ -45,80 +49,77 @@ const styles = (theme) => ({
       "& .ant-tabs-tabpane": {
         height: "100%",
       },
-      fontFamily: 'Vazir FD !important',
-      direction: 'rtl',
-      overscrollBehaviorY: 'contain',
-      overflowX: 'hidden',
-      '& ul': {
-        listStyle: 'none',
+      fontFamily: "Vazir FD !important",
+      direction: "rtl",
+      overscrollBehaviorY: "contain",
+      overflowX: "hidden",
+      "& ul": {
+        listStyle: "none",
         margin: 0,
         padding: 0,
       },
-      '&::-webkit-scrollbar-button': {
-        display: 'none',
+      "&::-webkit-scrollbar-button": {
+        display: "none",
       },
-      '&::-webkit-scrollbar': {
+      "&::-webkit-scrollbar": {
         width: 5,
       },
-      '&::-webkit-scrollbar-thumb': {
+      "&::-webkit-scrollbar-thumb": {
         borderRadius: 4,
-        background: '#20bf6b',
+        background: "#20bf6b",
       },
-      
     },
-    '#nprogress .bar': {
-      background: 'theme.palette.primary',
+    "#nprogress .bar": {
+      background: "theme.palette.primary",
       height: 3,
     },
-    '#nprogress .peg': {
-      display: 'none',
+    "#nprogress .peg": {
+      display: "none",
     },
-    '&::-webkit-scrollbar-button': {
-      display: 'none',
+    "&::-webkit-scrollbar-button": {
+      display: "none",
     },
   },
   wrapper: {
-    height: '100%',
-    width: '100%',
-    overflow: 'auto',
-    '&::-webkit-scrollbar-button': {
-      display: 'none',
+    height: "100%",
+    width: "100%",
+    overflow: "auto",
+    "&::-webkit-scrollbar-button": {
+      display: "none",
     },
-    '&::-webkit-scrollbar': {
+    "&::-webkit-scrollbar": {
       width: 5,
     },
-    '&::-webkit-scrollbar-thumb': {
+    "&::-webkit-scrollbar-thumb": {
       borderRadius: 4,
       background: theme.palette.primary,
     },
   },
   app: {
-    height: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    width: '100%',
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
     backgroundColor: theme.palette.white,
-    margin: '0 auto',
-    '@media screen and (max-width:767px)': {
-      background: theme.palette.colors.grey[100],
-    },
-    '& a': {
-      textDecoration: 'none',
+    margin: "0 auto",
+    "& a": {
+      textDecoration: "none",
     },
   },
   loading: {
-    width: '100%',
-    height: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     background: theme.palette.white,
   },
-  '@media screen and (max-width:992px)': {
+  root: {},
+  "@media screen and (max-width:992px)": {
     app: {
       background: theme.palette.colors.grey[100],
-      margin:`calc(${ theme.palette.hedaerMobileSize}) 0`
     },
+    root: { margin: `calc(${theme.palette.hedaerMobileSize}) 0` },
   },
 });
 
