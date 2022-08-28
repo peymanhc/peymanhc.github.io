@@ -14,11 +14,11 @@ function Display(props: any) {
           : classes.displayresume,
       ].join("  ")}
     >
-      <div>{props.time.m >= 60 ? props.time.m : "0" + props.time.h}</div>
+      <div>{props.time?.timeDiff?.m >= 60 ? props.time?.timeDiff?.m : "0" + props.time?.timeDiff?.h}</div>
       &nbsp;:&nbsp;
-      <div>{props.time.s >= 60 ? props.time.s : "0" + props.time.m}</div>
+      <div>{props.time?.timeDiff?.s >= 60 ? props.time?.timeDiff?.s : "0" + props.time?.timeDiff?.m}</div>
       &nbsp;:&nbsp;
-      <div>{props.time.s >= 10 ? props.time.s : "0" + props.time.s}</div>
+      <div>{props.time?.timeDiff?.s >= 10 ? props.time?.timeDiff?.s : "0" + props.time?.timeDiff?.s}</div>
     </div>
   );
 }

@@ -1,60 +1,72 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Display from "./Display";
 import Btn from "./btn";
 import style from "./style";
+import { timeDiffrenced } from "utils/timeDifference";
 
 function TimeTracker({ classes, setTrackList, trackList }: any) {
-  const [time, setTime] = useState({ ms: 0, s: 0, m: 0, h: 0 });
-  const [interv, setInterv] = useState();
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const [time, setTime] = useState({
+    id: 0,
+    startDate: 0,
+    endDate: 0,
+  });
+
   const [status, setStatus] = useState(0);
-  // Not started = 0
-  // started = 1
-  // stopped = 2
-
+  const [Id, setId] = useState(0);
   const start = () => {
-    run();
+    setId(Id + 1);
     setStatus(1);
-    setInterv(setInterval(run, 10));
+    const date = new Date();
+    setStartDate(date);
+    setEndDate(date);
+    setTime({
+      ...time,
+      id: Id,
+      timeDiff: timeDiffrenced(new Date(), new Date()),
+      startDate: date,
+    });
   };
-
-  var updatedMs = time.ms,
-    updatedS = time.s,
-    updatedM = time.m,
-    updatedH = time.h;
-
   const run = () => {
-    if (updatedM === 60) {
-      updatedH++;
-      updatedM = 0;
-    }
-    if (updatedS === 60) {
-      updatedM++;
-      updatedS = 0;
-    }
-    if (updatedMs === 100) {
-      updatedS++;
-      updatedMs = 0;
-    }
-    updatedMs++;
-    return setTime({ ms: updatedMs, s: updatedS, m: updatedM, h: updatedH });
+    return setTime({
+      ...time,
+      id: Id,
+      timeDiff: timeDiffrenced(startDate, new Date()),
+      startDate: startDate,
+      endDate: endDate,
+    });
   };
   const stop = () => {
-    clearInterval(interv);
     setStatus(0);
-    setTime({ ms: 0, s: 0, m: 0, h: 0 });
-    setTrackList([...trackList, time]);
-  };
+    setEndDate(new Date());
+    let timeItem = {
+      ...time,
+      id: Id,
+      timeDiff: timeDiffrenced(startDate, new Date()),
+      endDate: new Date(),
+    };
+    setTime(timeItem);
 
-  const reset = () => {
-    clearInterval(interv);
-    setStatus(0);
-    setTime({ ms: 0, s: 0, m: 0, h: 0 });
+    setTrackList([...trackList, timeItem]?.reverse());
   };
-
+  useEffect(() => {
+    if (status == 1) {
+      const id = setInterval(() => {
+        run();
+      }, 1000);
+      return () => clearInterval(id);
+    }else{
+      return setTime({
+        ...time,
+        timeDiff: timeDiffrenced(new Date(), new Date()),
+      });
+    }
+  }, [status]);
   return (
     <div className={classes.mainTracker}>
       <Display status={status} time={time} />
-      <Btn status={status} reset={reset} stop={stop} start={start} />
+      <Btn status={status} stop={stop} start={start} />
     </div>
   );
 }

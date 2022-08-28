@@ -57,6 +57,7 @@ const Style = (mode: any, direction: any) => ({
               900: "#1a1a1a",
             },
             green: {
+              25: "#dcf3dc56",
               50: "#dcf3dca6",
               100: "#dcf3dc",
               200: "#03a40336",

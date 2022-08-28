@@ -58,6 +58,9 @@ const styles = (theme) => ({
         margin: 0,
         padding: 0,
       },
+      "& tspan": {
+        fontFamily: "Vazir FD !important",
+      },
       "&::-webkit-scrollbar-button": {
         display: "none",
       },
@@ -117,7 +120,7 @@ const styles = (theme) => ({
   root: {},
   "@media screen and (max-width:992px)": {
     app: {
-      background: theme.palette.colors.grey[100],
+      background: theme.palette.colors.green[25],
     },
     root: { margin: `calc(${theme.palette.hedaerMobileSize}) 0` },
   },

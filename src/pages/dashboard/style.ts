@@ -44,12 +44,14 @@ const styles = (theme: any) => ({
     minHeight:"400px !important",
     width:"100%",
     padding: [0,0,50,80],
+    backgroundColor:theme.palette.white,
     border: `1px solid ${theme.palette.colors.grey[200]}`,
   },
   timeTracker:{
     padding:10,
     width:"100%",
     height: 110,
+    backgroundColor:theme.palette.white,
     border: `1px solid ${theme.palette.colors.grey[200]}`,
   },
   bartitle:{
@@ -68,6 +70,7 @@ const styles = (theme: any) => ({
     flexDirection:"column"
   },
   tracksList:{
+    backgroundColor:theme.palette.white,
     padding:10,
     width:"100%",
     height: 241,
@@ -84,27 +87,111 @@ const styles = (theme: any) => ({
       background: '#20bf6b',
     },
   },
+  trackItems:{
+    width:"100%",
+    height: "11.3em",
+    overflowY:"auto",
+    border: `1px solid ${theme.palette.colors.grey[200]}`,
+    '&::-webkit-scrollbar-button': {
+      display: 'none',
+    },
+    '&::-webkit-scrollbar': {
+      width: 5,
+    },
+    '&::-webkit-scrollbar-thumb': {
+      borderRadius: 5,
+      background: '#20bf6b',
+    },
+  },
   todayTrack:{
     width:"100%",
     height: 110,
   },
   trackItem:{
+    border: `1px solid ${theme.palette.colors.grey[100]}`,
     display:"flex",
     alignItems:"center",
-    flexDirection:"row-reverse",
+    flexDirection:"row",
+    justifyContent:"space-between",
     width:"100%",
     background:theme.palette.third,
     padding:10,
     gridGap:5
   },
+  actions:{
+    display:"flex",
+    alignItems:"center",
+    gridGap:20,
+    "& i":{
+      cursor:"pointer"
+    }
+  },
+  time:{
+    display:"flex",
+    alignItems:"center",
+    flexDirection:"row-reverse",
+  },
   totalTime:{
     width:"100%",
-    background:theme.palette.colors.green[100],
     display:"flex",
     alignItems:"center",
     flexDirection:"row-reverse",
     padding:10,
     gridGap:5
+  },
+  titleCard:{
+    display:"flex",
+    alignItems:"center",
+    gridGap:15,
+    marginBottom:15,
+    "& i":{
+      fontSize: 22,
+      color: `${theme.palette.primary}`,
+      backgroundColor: `${theme.palette.colors.green[50]}`,
+      borderRadius: "50%",
+      width: 45,
+      height: 45,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    "& h5":{
+      fontSize:16,
+      marginBottom:0
+    }
+  },
+  emptyState:{
+    display:"flex",
+    alignItems:"center",
+    justifyContent:"center",
+    height:60,
+    fontSize:14,
+    fontWeight:700
+  },
+  removeBody:{
+    backgroundColor:theme.palette.white
+  },
+  removeActions:{
+    display:"flex",
+    marginTop:24,
+    justifyContent:"flex-end",
+    gridGap:20
+  },
+  removeButton:{
+    cursor:"pointer",
+    backgroundColor:theme.palette.colors.red[900],
+    border:0,
+    color:theme.palette.white,
+    width:100,
+    height:40
+  },
+  cancelButton:{
+    cursor:"pointer",
+    backgroundColor:theme.palette.colors.grey[500],
+    border:0,
+    color:theme.palette.white,
+    width:100,
+    height:40
   },
   "@media (max-width: 992px)": {
     root: {
@@ -117,6 +204,9 @@ const styles = (theme: any) => ({
     chart:{
       padding:0,
       height:100,
+    },
+    tracker:{
+      flexDirection:"column"
     }
   }
 });
