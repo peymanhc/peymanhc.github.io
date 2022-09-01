@@ -41,9 +41,12 @@ const styles = (theme: any) => ({
   },
   chart:{
     height:490,
+    display:"flex",
+    flexDirection:"column",
+    gridGap:20,
     minHeight:"400px !important",
     width:"100%",
-    padding: [0,0,50,80],
+    padding: [0,0,80,10],
     backgroundColor:theme.palette.white,
     border: `1px solid ${theme.palette.colors.grey[200]}`,
   },

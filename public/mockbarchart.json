@@ -1,72 +1,44 @@
 [
-    {
-      "id":1,
-      "day": "شنبه",
-      "leave":8,
-      "leaveColor": "red",
-      "working": 0,
-      "workingColor": "green",
-      "absence":0,
-      "absenceColor": "yellow"
-    },
-    {
-      "id":2,
-      "day": "یکشنبه",
-      "leave":2,
-      "leaveColor": "red",
-      "working": 2,
-      "workingColor": "green",
-      "absence":4,
-      "absenceColor": "yellow"
-    },
-    {
-      "id":3,
-      "day": "دوشنبه",
-      "leave":0,
-      "leaveColor": "red",
-      "working": 8,
-      "workingColor": "green",
-      "absence":0,
-      "absenceColor": "yellow"
-    },
-    {
-      "id":4,
-      "day": "سه شنبه",
-      "leave":8,
-      "leaveColor": "red",
-      "working": 0,
-      "workingColor": "green",
-      "absence":0,
-      "absenceColor": "yellow"
-    },
-    {
-      "id":5,
-      "day": "چهارشنبه",
-      "leave":1,
-      "leaveColor": "red",
-      "working": 6,
-      "workingColor": "green",
-      "absence":1,
-      "absenceColor": "yellow"
-    },
-    {
-      "id":0,
-      "day": "پنج شنبه",
-      "leave":0,
-      "leaveColor": "red",
-      "working": 3,
-      "workingColor": "green",
-      "absence":0,
-      "absenceColor": "yellow"
-    },
-    {
-      "id":6,
-      "day": "جمعه",
-      "leave":0,
-      "leaveColor": "red",
-      "working": 0,
-      "workingColor": "green",
-      "absence":0,
-      "absenceColor": "yellow"
-    }
-  ]
+  {
+    "status": 0,
+    "dateRange": [
+      "2022-09-01 , 07:09:01",
+      "2022-09-01 , 12:10:20"
+    ]
+  },
+  {
+    "status": 1,
+    "dateRange": [
+      "2022-09-01 , 12:18:00",
+      "2022-09-01 , 20:18:20"
+    ]
+  },
+  {
+    "status": 2,
+    "dateRange": [
+      "2022-09-01 , 20:18:20",
+      "2022-09-01 , 23:29:00"
+    ]
+  },
+  {
+    "status": 0,
+    "dateRange": [
+      "2022-08-31 , 00:18:20",
+      "2022-08-31 , 09:29:00"
+    ]
+  },
+  {
+    "status": 1,
+    "dateRange": [
+      "2022-08-31 , 10:18:20",
+      "2022-08-31 , 16:29:00"
+    ]
+  },
+  {
+    "status": 2,
+    "dateRange": [
+      "2022-08-31 , 16:18:20",
+      "2022-08-31 , 19:29:00"
+    ]
+  }
+]

@@ -6,8 +6,12 @@ function useDashboard() {
   function getBarChart() {
     return DashboardService.getbarChart();
   }
+  function getLineChart() {
+    return DashboardService.getLineChart();
+  }
   return {
     getBarChart,
+    getLineChart
   };
 }
 

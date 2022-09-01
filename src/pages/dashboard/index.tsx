@@ -1,10 +1,12 @@
-import { Col, Row } from "antd";
+import { Col, Row, Tooltip } from "antd";
 import BarChart from "component/barChart";
 import Calender from "component/calender";
 import CountCard from "component/countCard";
 import Icon from "component/icon";
+import LineChart from "component/lineChart";
 import Modal from "component/modal";
 import TimeTracker from "component/timeTracker";
+import { getDate } from "helpers/date";
 import useDashboard from "hooks/dashboard.hook";
 import React, { useEffect, useState } from "react";
 import { timeDiffrenced } from "utils/timeDifference";
@@ -15,19 +17,41 @@ type Props = {
 };
 
 function Dashboard({ classes }: Props) {
-  const [value, setValue] = useState(null);
+  const [datepicker, setDatepicker] = useState(new Date().setHours(0, 0, 0, 0));
   const [barChart, setBarChart] = useState(null);
+  const [lineChart, setLineChart] = useState([]);
   const [trackList, setTrackList] = useState([]);
   const [visible, setVisible] = useState(false);
   const [filterTrackList, setFilterTrackList] = useState(null);
-  const { getBarChart } = useDashboard();
-
+  const { getBarChart,getLineChart } = useDashboard();
   useEffect(() => {
     getBarChart().then((res) => {
-      setBarChart(res);
+      const transformedData = res.map((item) => {
+        let startedDate = new Date(item.dateRange[0]);
+        let endDate = new Date(item.dateRange[1]);
+        return {
+          x: "جزییات",
+          y: [
+            startedDate.setHours(startedDate.getHours() + 4, 30),
+            endDate.setHours(endDate.getHours() + 4, 30),
+          ],
+          fillColor:
+            item.status == 0
+              ? "#FF4560"
+              : item.status == 1
+              ? "#b6ddb6"
+              : "#FEB019",
+        };
+      });
+      setBarChart({
+        name: "نمودار حضور و غیاب",
+        data: transformedData,
+      });
     });
+    getLineChart().then((res)=>{
+      setLineChart(res)
+    })
   }, []);
-
   const Total = () => {
     const TrackTimes = trackList.map((item, i) => {
       return timeDiffrenced(item?.startDate, item?.endDate);
@@ -37,8 +61,8 @@ function Dashboard({ classes }: Props) {
     let s = TrackTimes.reduce((n, { s }) => n + s, 0);
 
     var hour = Math.floor(s / 3600);
-    var min = Math.floor(s % 3600 / 60);
-    var sec = Math.floor(s % 3600 % 60);
+    var min = Math.floor((s % 3600) / 60);
+    var sec = Math.floor((s % 3600) % 60);
     return { sec, min, hour };
   };
 
@@ -53,6 +77,9 @@ function Dashboard({ classes }: Props) {
   const handleRemove = () => {
     setTrackList(filterTrackList);
     setVisible(false);
+  };
+  const handleEditTime = (item) => {
+    console.log(item);
   };
   const handleCancel = () => {
     setVisible(false);
@@ -104,16 +131,40 @@ function Dashboard({ classes }: Props) {
                 trackList?.map((item, i) => (
                   <div className={classes.trackItem} key={i}>
                     <div className={classes.time}>
-                      <div>{item?.m >= 60 ? item?.timeDiff?.m : "0" + item?.timeDiff?.h}</div>
+                      <div>
+                        {item?.m >= 60
+                          ? item?.timeDiff?.m
+                          : "0" + item?.timeDiff?.h}
+                      </div>
                       &nbsp;:&nbsp;
-                      <div>{item?.timeDiff?.s >= 60 ? item?.timeDiff?.s : "0" + item?.timeDiff?.m}</div>
+                      <div>
+                        {item?.timeDiff?.s >= 60
+                          ? item?.timeDiff?.s
+                          : "0" + item?.timeDiff?.m}
+                      </div>
                       &nbsp;:&nbsp;
-                      <div>{item?.timeDiff?.s >= 10 ? item?.timeDiff?.s : "0" + item?.timeDiff?.s}</div>
+                      <div>
+                        {item?.timeDiff?.s >= 10
+                          ? item?.timeDiff?.s
+                          : "0" + item?.timeDiff?.s}
+                      </div>
                     </div>
                     <div className={classes.actions}>
-                      <i>$</i>
-                      <Icon name="Edit" />
-                      <Icon onClick={() => handleDeleteTime(i)} name="Delete" />
+                      <Tooltip title={`هزینه:  ${12000}تومان`}>
+                        <i>$</i>
+                      </Tooltip>
+                      <Tooltip title={"ویرایش ساعت کاری"}>
+                        <Icon
+                          onClick={() => handleEditTime(item)}
+                          name="Edit"
+                        />
+                      </Tooltip>
+                      <Tooltip title={"حذف ساعت کاری"}>
+                        <Icon
+                          onClick={() => handleDeleteTime(i)}
+                          name="Delete"
+                        />
+                      </Tooltip>
                     </div>
                   </div>
                 ))
@@ -123,11 +174,8 @@ function Dashboard({ classes }: Props) {
         </div>
         <div className={classes.chart}>
           <h5 className={classes.bartitle}>نمودار حضور و غیاب</h5>
-          <BarChart
-            keys={["leave", "working", "absence"]}
-            indexBy={"day"}
-            data={barChart ? barChart : []}
-          />
+          <BarChart timeRange={datepicker} data={barChart ? [barChart] : []} />
+          <LineChart data={lineChart} />
         </div>
       </Col>
       <Col sm={8} xs={24} className={classes.wrapper}>
@@ -142,7 +190,7 @@ function Dashboard({ classes }: Props) {
           <CountCard icon={"Packages"} description={"198"} title="ساعت کاری" />
         </div>
         <div className={classes.calender}>
-          <Calender onChange={setValue} />
+          <Calender onChange={setDatepicker} />
         </div>
       </Col>
       <Modal

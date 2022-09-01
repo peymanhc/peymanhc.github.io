@@ -6,4 +6,9 @@ export default {
       url: "/",
       api: "mockbarchart.json",
     }),
+  getLineChart: () =>
+    get({
+      url: "/",
+      api: "mockdateChart.json",
+    }),
 };

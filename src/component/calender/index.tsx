@@ -8,6 +8,7 @@ import * as shamsi from "shamsi-date-converter";
 import style from "./style";
 import Icon from "component/icon";
 import Holidays from "date-holidays";
+import { getDate } from "helpers/date";
 
 dayjs.extend(updateLocale);
 
@@ -159,6 +160,7 @@ const Calender = (props: any) => {
   const handleChange = (value: any) => {
     setCurrentDate(value);
     props.onChange(value);
+    console.log(value)
   }
   return (
     <div className={classes.calendarWrapper}>
