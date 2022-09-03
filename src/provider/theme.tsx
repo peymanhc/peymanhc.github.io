@@ -11,7 +11,7 @@ const Style = (mode: any, direction: any) => ({
     black: "#000",
     ...(mode === "light"
       ? {
-          primary: "green",
+          primary: "#6a9e7a",
           secondary: "red",
           colors: {
             white: "#fff",
@@ -35,7 +35,7 @@ const Style = (mode: any, direction: any) => ({
           },
         }
       : {
-          primary: "green",
+          primary: "#6a9e7a",
           secondary: "rgb(0, 41, 0)",
           third: "rgb(241, 248, 236)",
           colors: {
@@ -43,7 +43,11 @@ const Style = (mode: any, direction: any) => ({
               100: "#fff5f5",
               200: "#ffe3e3",
               300: "#ffc9c9",
+              800:"",
               900:"red"
+            },
+            yellow:{
+              800:"#FEB019"
             },
             grey: {
               100: "#f0f0f0",
@@ -71,7 +75,7 @@ const Style = (mode: any, direction: any) => ({
             },
             blue:{
               100: "#96DED1",
-            }
+            },
           },
         }),
   },

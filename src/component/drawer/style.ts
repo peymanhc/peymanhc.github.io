@@ -3,6 +3,7 @@ import style from "provider/style";
 const styles = (theme: any) => ({
   root: {
     backgroundColor: `${theme.palette.white}`,
+    marginTop:20
   },
   sideMenu: {
     backgroundColor: `${theme.palette.white}`,
@@ -14,7 +15,6 @@ const styles = (theme: any) => ({
     minWidth: 230,
     borderRadius: 0,
     border: `1px solid ${theme.palette.colors.grey[200]}`,
-    borderTop: "none",
   },
   menuItem: {
     display: "flex",

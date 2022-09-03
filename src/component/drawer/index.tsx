@@ -19,19 +19,19 @@ const Drawer = (props: any) => {
   useEffect(() => {
     setDrawerList([
       {
-        icon: "Flash",
-        name: "برقی",
+        icon: "Reports_Abri",
+        name: "داشبورد",
         route: "/",
       },
       {
-        icon: "Add_New_Contact",
-        name: "مخاطبین",
-        route: "/contacts",
+        icon: "Subset",
+        name: "آمار ها",
+        route: "/statistics",
       },
       {
-        icon: "Add_Video_Editor",
-        name: "ویدیو",
-        route: "/video",
+        icon: "Users",
+        name: "کاربران",
+        route: "/members",
       },
       {
         icon: "Bank_Managment",

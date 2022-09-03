@@ -1,0 +1,13 @@
+{
+    "id": 1,
+    "name": "پیمان هادوی",
+    "jobTitle": "برنامه نویس فرانت اند",
+    "degree_of_education": "لیسانس علوم کامپیوتر",
+    "address": "آدرس محل زندگی : خرم آباد گلدشت شرقی میدان فردوسی خ ارغوان ک تابناک",
+    "salary": "16700000",
+    "married":true ,
+    "contact_number":"09219095536",
+    "email":"peymanhc@gmail.com",
+    "image":"/profile.png",
+    "average_time_working":"176"
+}

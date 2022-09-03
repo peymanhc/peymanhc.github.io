@@ -16,15 +16,17 @@ const Table = ({
   hasNextPage,
   currentPage,
   handleLoadMore,
-  classes
-}:any) => {
+  onRowClick,
+  classes,
+  height,
+}: any) => {
   const [showMoreItems, setShowMore] = useState<boolean | any>(false);
   const { isMobile } = useSelector<StateNetwork, AppConfig>(
     (state) => state.appConfig
   );
   const [NextPage, setNextPage] = useState<number>(currentPage);
   const [LoadingShowMore, setLoadingShowMore] = useState<boolean>(false);
-  const handleShowMore = (e,i) => {
+  const handleShowMore = (e, i) => {
     e.stopPropagation();
     if (showMoreItems === i) {
       setShowMore(null);
@@ -33,9 +35,7 @@ const Table = ({
     }
   };
 
-  let ShowmoreSlice = isMobile
-    ? columnsCountMobile || 1
-    : columnsCount || 7;
+  let ShowmoreSlice = isMobile ? columnsCountMobile || 1 : columnsCount || 7;
 
   const handleScroll = (e) => {
     if (hasNextPage) {
@@ -56,19 +56,18 @@ const Table = ({
     setActiveRing(i);
     handleLoadMore(currentPage, i);
   };
+  const handleRowClick = (item) => {
+    onRowClick(item);
+  };
   return (
     <div className={classes.root}>
       {titleBar && (
-        <div
-          className={classes.titleBar}
-        >
+        <div className={classes.titleBar}>
           <div className={classes.title}>{titleBar}</div>
         </div>
       )}
       {description && (
-        <div
-          className={classes.descriptionBar}
-        >
+        <div className={classes.descriptionBar}>
           <div className={classes.descriptions}>
             {description?.map((item, i) => (
               <span
@@ -84,20 +83,19 @@ const Table = ({
           </div>
         </div>
       )}
-      <div onScroll={(e) => handleScroll(e)} className={classes.wrapper}>
+      <div
+        style={{ height: height && height }}
+        onScroll={(e) => handleScroll(e)}
+        className={classes.wrapper}
+      >
         <ul className={classes.header}>
           {columns?.length > ShowmoreSlice && (
             <li className={classes.showmoreItem}>
-              <div
-                className={classes.showmoreColumn}
-              ></div>
+              <div className={classes.showmoreColumn}></div>
             </li>
           )}
           {columns?.slice(0, ShowmoreSlice).map((item, i) => (
-            <li
-              key={i}
-              className={classes.headerItem}
-            >
+            <li key={i} className={classes.headerItem}>
               {item.title}
             </li>
           ))}
@@ -112,7 +110,8 @@ const Table = ({
         ) : (
           data?.map((value, i) => (
             <div
-              style={{ cursor: value?.link ? "pointer" : "alias" }}
+              onClick={() => handleRowClick(value)}
+              style={{ cursor: onRowClick ? "pointer" : "alias" }}
               className={classes.extraColumns}
               key={i}
             >
@@ -125,7 +124,7 @@ const Table = ({
                     className={classes.showmoreItem}
                   >
                     <div
-                      onClick={(e) => handleShowMore(e,value.id)}
+                      onClick={(e) => handleShowMore(e, value.id)}
                       className={classes.showmore}
                     >
                       {showMoreItems === value.id ? (
@@ -149,7 +148,9 @@ const Table = ({
                         style={{ width: value[item.precent] ? 60 : "auto" }}
                         className={classes.value}
                       >
-                        {value[item.data]}
+                        {item?.render
+                          ? item?.render(value[item.data], value)
+                          : value[item.data]}
                       </span>
                     </div>
                   </li>
@@ -172,11 +173,7 @@ const Table = ({
             </div>
           ))
         )}
-        {loading && (
-          <div className={classes.spinner}>
-            loading
-          </div>
-        )}
+        {loading && <div className={classes.spinner}>loading</div>}
       </div>
     </div>
   );

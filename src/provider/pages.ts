@@ -2,8 +2,8 @@ import { lazy } from "react";
 
 export const Pages = [
   {
-    title: "contacts",
-    path: "/contacts",
+    title: "statistics",
+    path: "/statistics",
     exact: true,
     icon: "",
     render: () => lazy(() => import("pages/contacts")),
@@ -15,6 +15,22 @@ export const Pages = [
     exact: true,
     icon: "",
     render: () => lazy(() => import("pages/dashboard")),
+    layout:true
+  },
+  {
+    title: "members",
+    path: "/members",
+    exact: true,
+    icon: "",
+    render: () => lazy(() => import("pages/members")),
+    layout:true
+  },
+  {
+    title: "members",
+    path: "/members/:userId",
+    exact: true,
+    icon: "",
+    render: () => lazy(() => import("pages/member")),
     layout:true
   },
   {

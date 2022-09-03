@@ -1,12 +1,6 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { AppConfig } from "store/app/app.reducer";
-import { StateNetwork } from "store/index.reducer";
 import style from "./style";
 import ReactApexChart from "react-apexcharts";
-import { timeDiffrenced } from "utils/timeDifference";
-import dayjs from "dayjs";
-const LineChart = ({ data, timeRange, classes }: any) => {
+const LineChart = ({ data, timeRange, height, classes }: any) => {
   const options = {
     chart: {
       type: "bar",
@@ -63,7 +57,12 @@ const LineChart = ({ data, timeRange, classes }: any) => {
   };
   return (
     <div className={classes.root}>
-      <ReactApexChart options={options} series={data} type="bar" height={250} />
+      <ReactApexChart
+        options={options}
+        series={data}
+        type="bar"
+        height={height ? height : 250}
+      />
     </div>
   );
 };

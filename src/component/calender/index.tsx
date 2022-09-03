@@ -11,7 +11,6 @@ import Holidays from "date-holidays";
 import { getDate } from "helpers/date";
 
 dayjs.extend(updateLocale);
-
 const locales = {
   lang: {
     locale: "en",

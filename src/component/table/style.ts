@@ -105,7 +105,7 @@ const styles = (theme: any) => ({
         width: "100%",
         position: "relative",
         overflowY: "auto",
-        maxHeight: 500,
+        maxHeight: "65vh",
         backgroundColor: theme.palette.white,
         /* width */
         "&::-webkit-scrollbar": {
@@ -136,7 +136,7 @@ const styles = (theme: any) => ({
         alignItems: "center",
         position: "sticky",
         top: 0,
-    
+        zIndex:10
       },
       headerItem: {
         height: 45,

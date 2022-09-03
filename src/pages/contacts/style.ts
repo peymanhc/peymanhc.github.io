@@ -2,8 +2,9 @@ import style from "provider/style";
 
 const styles = (theme: any) => ({
   root: {
-    padding: 48,
-  },
+    padding: 20,
+    maxWidth:1600,
+  }, 
   tabs: {
     height: "90%",
 
