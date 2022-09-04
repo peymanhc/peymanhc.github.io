@@ -39,6 +39,30 @@ const styles = (theme: any) => ({
       },
     },
   },
+  languages: {
+    display: "flex",
+    gridGap: 10,
+    alignItems: "center",
+    "& span": {
+      width: 25,
+      height: 25,
+      cursor:"pointer",
+      borderRadius: "50%",
+      background:theme.palette.first[400],
+      border: `4px solid ${theme.palette.primary}`,
+      color:theme.palette.black,
+      fontSize:10,
+      display:"flex",
+      alignItems:"center",
+      justifyContent:"center",
+      paddingTop:2
+    },
+  },
+  wrapper:{
+    display:"flex",
+    gridGap:20,
+    flexWrap:"wrap"
+  }
 });
 
 export default style(styles);

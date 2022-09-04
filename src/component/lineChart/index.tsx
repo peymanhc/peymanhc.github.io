@@ -1,6 +1,7 @@
 import style from "./style";
 import ReactApexChart from "react-apexcharts";
 import { useTheme } from "react-jss";
+import { locale } from "config/string";
 const LineChart = ({ data, timeRange, height, classes }: any) => {
   const theme = useTheme()
   const options = {
@@ -28,15 +29,18 @@ const LineChart = ({ data, timeRange, height, classes }: any) => {
     },
     xaxis: {
       categories: [
-        "فروردین",
-        "اردیبهشت",
-        "خرداد",
-        "تیر",
-        "مرداد",
-        "شهریور",
-        "دی",
-        "بهمن",
-        "اسفند",
+        locale.farvardin,
+        locale.ordibehesht,
+        locale.khordad,
+        locale.tir,
+        locale.mordad,
+        locale.shahrivar,
+        locale.mehr,
+        locale.aban,
+        locale.azar,
+        locale.dai,
+        locale.bahman,
+        locale.esfand,
       ],
     },
     yaxis: {

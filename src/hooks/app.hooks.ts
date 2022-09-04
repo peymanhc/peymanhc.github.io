@@ -12,13 +12,18 @@ function useApp() {
   }
   function changeTheme(value: string) {
     const action = AppActions.themeColor(value);
-    store('theme', value);
+    store("theme", value);
     dispatch(action);
-    window.location.replace("/")
+    window.location.replace("/");
+  }
+  function changeLanguage(value: string) {
+    store("language", value);
+    window.location.replace("/");
   }
   return {
     isMobileView,
-    changeTheme
+    changeTheme,
+    changeLanguage,
   };
 }
 

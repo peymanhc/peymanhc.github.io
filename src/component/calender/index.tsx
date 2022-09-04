@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { Typography } from "antd";
 import { Calendar as CalendarJalali } from "antd-jalali";
 import dayjs from "dayjs";
@@ -9,6 +9,7 @@ import style from "./style";
 import Icon from "component/icon";
 import Holidays from "date-holidays";
 import { getDate } from "helpers/date";
+import { locale } from "config/string";
 
 dayjs.extend(updateLocale);
 const locales = {
@@ -16,13 +17,13 @@ const locales = {
     locale: "en",
     dayFormat: dayjs.updateLocale("fa", {
       weekdaysMin: [
-        "یک شنبه",
-        "دو شنبه",
-        "سه شنبه",
-        "چهار شنبه",
-        "پنج شنبه",
-        "جمعه",
-        "شنبه",
+        locale.sunday,
+        locale.monday,
+        locale.tuesday,
+        locale.wednesday,
+        locale.thursday,
+        locale.friday,
+        locale.saturday,
       ],
     }),
   },
@@ -159,8 +160,8 @@ const Calender = (props: any) => {
   const handleChange = (value: any) => {
     setCurrentDate(value);
     props.onChange(value);
-    console.log(value)
-  }
+    console.log(value);
+  };
   return (
     <div className={classes.calendarWrapper}>
       <CalendarJalali

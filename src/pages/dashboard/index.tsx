@@ -6,7 +6,7 @@ import Icon from "component/icon";
 import LineChart from "component/lineChart";
 import Modal from "component/modal";
 import TimeTracker from "component/timeTracker";
-import { getDate } from "helpers/date";
+import { locale } from "config/string";
 import useDashboard from "hooks/dashboard.hook";
 import React, { useEffect, useState } from "react";
 import {useTheme} from 'react-jss'
@@ -33,7 +33,7 @@ function Dashboard({ classes }: Props) {
         let startedDate = new Date(item.dateRange[0]);
         let endDate = new Date(item.dateRange[1]);
         return {
-          x: "جزییات",
+          x: locale.details,
           y: [
             startedDate.setHours(startedDate.getHours() + 4, 30),
             endDate.setHours(endDate.getHours() + 4, 30),
@@ -47,7 +47,7 @@ function Dashboard({ classes }: Props) {
         };
       });
       setBarChart({
-        name: "نمودار حضور و غیاب",
+        name: locale.attendanceChart,
         data: transformedData,
       });
     });
@@ -116,19 +116,19 @@ function Dashboard({ classes }: Props) {
                     </div>
                   </div>
                 }
-                title="ساعت کاری"
+                title={locale.hoursOfWork}
               />
             </div>
           </div>
           <div className={classes.tracksList}>
             <div className={classes.titleCard}>
               <Icon name="Notification" />
-              <h5>ساعت های ثبت شده</h5>
+              <h5>{locale.recordedHours}</h5>
             </div>
             <div className={classes.trackItems}>
               {trackList.length == 0 ? (
                 <div className={classes.emptyState}>
-                  هیچ تایم کاری ثبت نشده است
+                 {locale.noWorkingTimeHasBeenRecorded}
                 </div>
               ) : (
                 trackList?.map((item, i) => (
@@ -153,16 +153,16 @@ function Dashboard({ classes }: Props) {
                       </div>
                     </div>
                     <div className={classes.actions}>
-                      <Tooltip title={`هزینه:  ${12000}تومان`}>
+                      <Tooltip title={`${locale.cost}:  ${12000} ${locale.currency}`}>
                         <i>$</i>
                       </Tooltip>
-                      <Tooltip title={"ویرایش ساعت کاری"}>
+                      <Tooltip title={locale.editWorkingHours}>
                         <Icon
                           onClick={() => handleEditTime(item)}
                           name="Edit"
                         />
                       </Tooltip>
-                      <Tooltip title={"حذف ساعت کاری"}>
+                      <Tooltip title={locale.removeWorkingHours}>
                         <Icon
                           onClick={() => handleDeleteTime(i)}
                           name="Delete"
@@ -176,7 +176,7 @@ function Dashboard({ classes }: Props) {
           </div>
         </div>
         <div className={classes.chart}>
-          <h5 className={classes.bartitle}>نمودار حضور و غیاب</h5>
+          <h5 className={classes.bartitle}>{locale.attendanceChart}</h5>
           <BarChart timeRange={datepicker} data={barChart ? [barChart] : []} />
           <LineChart data={lineChart} />
         </div>
@@ -185,32 +185,32 @@ function Dashboard({ classes }: Props) {
         <div className={classes.card}>
           <CountCard
             icon={"Notification"}
-            description={"45000 ریال"}
-            title="دریافتی این ماه"
+            description={`45000 ${locale.currency}`}
+            title={locale.receivedThisMonth}
           />
         </div>
         <div className={classes.card}>
-          <CountCard icon={"Packages"} description={"198"} title="ساعت کاری" />
+          <CountCard icon={"Packages"} description={"198"} title={locale.hoursOfWork} />
         </div>
         <div className={classes.calender}>
           <Calender onChange={setDatepicker} />
         </div>
       </Col>
       <Modal
-        title="حذف تایم کاری"
+        title={locale.removeWorkingHours}
         visible={visible}
         onCancel={handleCancel}
         footer={null}
         width={600}
       >
         <div className={classes.removeBody}>
-          <p>آیا مطمئن هستید که می خواهید این تایم کاری را حذف کنید </p>
+         <p>{locale.are_you_sure_you_want_to_delete_this_timer}</p>
           <div className={classes.removeActions}>
             <button onClick={handleCancel} className={classes.cancelButton}>
-              انصراف
+              {locale.cancel}
             </button>
             <button onClick={handleRemove} className={classes.removeButton}>
-              حذف
+              {locale.delete}
             </button>
           </div>
         </div>

@@ -10,6 +10,7 @@ import BottomNavigationBar from "component/bottomNavigationBar";
 import { useSelector } from "react-redux";
 import { StateNetwork } from "store/index.reducer";
 import { AppConfig } from "store/app/app.reducer";
+import { locale } from "config/string";
 
 
 const Drawer = (props: any) => {
@@ -20,38 +21,28 @@ const Drawer = (props: any) => {
     setDrawerList([
       {
         icon: "Reports_Abri",
-        name: "داشبورد",
+        name: locale.dashboard,
         route: "/",
       },
       {
         icon: "Subset",
-        name: "آمار ها",
+        name: locale.statistics,
         route: "/statistics",
       },
       {
         icon: "Users",
-        name: "کاربران",
+        name: locale.users,
         route: "/members",
       },
       {
-        icon: "Bank_Managment",
-        name: "بانک",
-        route: "/bank",
+        icon: "Support",
+        name: locale.support,
+        route: "/support",
       },
       {
-        icon: "BTS",
-        name: "بی تی اس",
-        route: "/bts",
-      },
-      {
-        icon: "Managment",
-        name: "Dai",
-        route: "/shit",
-      },
-      {
-        icon: "Map",
-        name: "mamamedi",
-        route: "/new",
+        icon: "Setting",
+        name: locale.settings,
+        route: "/settings",
       },
     ]);
   }, []);

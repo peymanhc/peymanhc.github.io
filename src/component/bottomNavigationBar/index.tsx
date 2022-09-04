@@ -12,6 +12,7 @@ import {
   SettingOutlined,
 } from "@ant-design/icons";
 import { goBack } from "helpers/history";
+import { locale } from "config/string";
 
 interface Props {
   classes: any;
@@ -42,20 +43,20 @@ const BottomNavigation = ({ classes, routes }: Props) => {
     <Menu className={classes.menuStyle} theme="dark">
       <Menu.Item key="1">
         <UserOutlined />
-        <Typography>پروفایل</Typography>
+        <Typography>{locale.profile}</Typography>
       </Menu.Item>
       <Menu.Item key="2">
         <SettingOutlined />
-        <Typography>تنظیمات</Typography>
+        <Typography>{locale.settings}</Typography>
       </Menu.Item>
       <Menu.Item key="3">
         <InfoCircleOutlined />
-        <Typography>قوانین</Typography>
+        <Typography>{locale.rules}</Typography>
       </Menu.Item>
       <Divider style={{ background: "#707070", margin: "5px 0" }} />
       <Menu.Item key="4" onClick={logout}>
         <LogoutOutlined />
-        <Typography>خروج</Typography>
+        <Typography>{locale.logout}</Typography>
       </Menu.Item>
     </Menu>
   );

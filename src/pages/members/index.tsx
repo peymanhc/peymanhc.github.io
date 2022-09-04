@@ -3,6 +3,7 @@ import { Avatar } from "antd";
 import Icon from "component/icon";
 import Input from "component/input";
 import Table from "component/table";
+import { locale } from "config/string";
 import useMembers from "hooks/members.hook";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
@@ -62,23 +63,23 @@ function Members({ classes }: Props) {
   const columns = [
     {
       id: 0,
-      title: "کاربر",
+      title: locale.user,
     },
     {
       id: 1,
-      title: "موقعیت شغلی",
+      title: locale.jobTitle,
     },
     {
       id: 2,
-      title: "وضعیت",
+      title: locale.status,
     },
     {
       id: 3,
-      title: "آخرین حضور",
+      title: locale.lastAppearance,
     },
     {
       id: 4,
-      title: "کد کاربر",
+      title: locale.userCode,
     },
   ];
   const history = useHistory();
@@ -92,10 +93,11 @@ function Members({ classes }: Props) {
       <div className={classes.card}>
         <div className={classes.flex}>
           <h5 className={classes.boxTitle}>
-            <Icon name="Users" /> لیست کاربران
+            <Icon name="Users" />
+            {locale.listOfUsers}
           </h5>
           <Input
-            placeholder={"جستجو بر اساس نام کاربری"}
+            placeholder={locale.search}
             type="text"
             suffix={<Icon name="Search" />}
           />
@@ -109,7 +111,7 @@ function Members({ classes }: Props) {
           onRowClick={(item: any) => handleShowDetail(item)}
         />
         <p className={classes.totalCount}>
-          تعداد کاربران : {membersList.length}
+          {locale.numberOfUsers}: {membersList.length}
         </p>
       </div>
     </div>

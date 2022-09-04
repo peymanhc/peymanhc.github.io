@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 import { remove } from "storage";
 import style from "./style";
 import Icon from "component/icon";
+import { locale } from "config/string";
 const { Text } = Typography;
 
 const AppBar = (props: any) => {
@@ -25,23 +26,22 @@ const AppBar = (props: any) => {
     <Menu className={classes.menuStyle} theme="dark">
       <Menu.Item key="1">
         <UserOutlined />
-        <Typography>پروفایل</Typography>
+        <Typography>{locale.profile}</Typography>
       </Menu.Item>
       <a href="/settings">
-      <Menu.Item key="2">
-     
+        <Menu.Item key="2">
           <SettingOutlined />
-          <Typography>تنظیمات</Typography>
-  
-      </Menu.Item>      </a>
+          <Typography>{locale.settings}</Typography>
+        </Menu.Item>{" "}
+      </a>
       <Menu.Item key="3">
         <InfoCircleOutlined />
-        <Typography>قوانین</Typography>
+        <Typography>{locale.rules}</Typography>
       </Menu.Item>
       <Divider style={{ background: "#707070", margin: "5px 0" }} />
       <Menu.Item key="4" onClick={logout}>
         <LogoutOutlined />
-        <Typography>خروج</Typography>
+        <Typography>{locale.logout}</Typography>
       </Menu.Item>
     </Menu>
   );
@@ -53,9 +53,9 @@ const AppBar = (props: any) => {
           <div className={classes.titleLogo}>
             <img src={"/logo192.png"} className={classes.logo} alt="logo" />
             <div className={classes.title}>
-              <Text strong>داشبورد من</Text>
+              <Text strong>{locale.appName}</Text>
               <Text italic type="secondary">
-                داشبورد خرید سکه
+                {locale.loginWelcome}
               </Text>
             </div>
           </div>

@@ -1,13 +1,11 @@
-import { UserOutlined } from "@ant-design/icons";
 import { Avatar, Col, Row } from "antd";
 import Icon from "component/icon";
 import Input from "component/input";
 import LineChart from "component/lineChart";
 import Table from "component/table";
-import useDashboard from "hooks/dashboard.hook";
+import { locale } from "config/string";
 import useMembers from "hooks/members.hook";
 import { useEffect, useState } from "react";
-import ReactApexChart from "react-apexcharts";
 import style from "./style";
 
 type Props = {
@@ -70,23 +68,23 @@ function MemberInfo({ classes }: Props) {
   const columns = [
     {
       id: 0,
-      title: "کاربر",
+      title: locale.user,
     },
     {
       id: 1,
-      title: "موقعیت شغلی",
+      title: locale.jobTitle,
     },
     {
       id: 2,
-      title: "وضعیت",
+      title: locale.status,
     },
     {
       id: 3,
-      title: "آخرین حضور",
+      title: locale.lastAppearance,
     },
     {
       id: 4,
-      title: "کد کاربر",
+      title: locale.userCode,
     },
   ];
   return (
@@ -96,32 +94,34 @@ function MemberInfo({ classes }: Props) {
           <img className={classes.userImage} src="/profile.png" />
           <ul className={classes.userInfo}>
             <li>
-              نام : <span>{memberInfo?.name}</span>
+              {locale.name} : <span>{memberInfo?.name}</span>
             </li>
             <li>
-              عنوان شغلی : <span>{memberInfo?.jobTitle}</span>
+              {locale.jobTitle}: <span>{memberInfo?.jobTitle}</span>
             </li>
             <li>
-              مدرک تحصیلی : <span>{memberInfo?.degree_of_education}</span>
+              {locale.degree_of_education}:{" "}
+              <span>{memberInfo?.degree_of_education}</span>
             </li>
             <li>
-              آدرس محل زندگی : <span>{memberInfo?.address}</span>
+              {locale.address}: <span>{memberInfo?.address}</span>
             </li>
             <li>
-              حقوق پایه : <span>{memberInfo?.salary} تومان</span>
+              {locale.salary}: <span>{memberInfo?.salary} {locale.currency}</span>
             </li>
             <li>
-              میانگین ساعت کارکرد ماهانه :{" "}
+              {locale.average_time_working}:{" "}
               <span>{memberInfo?.average_time_working}</span>
             </li>
             <li>
-              وضعیت تاهل : <span>{memberInfo?.married ? "متاهل" : "مجرد"}</span>
+              {locale.married}:{" "}
+              <span>{memberInfo?.married_status ? locale.married : locale.single}</span>
             </li>
             <li>
-              شماره تماس : <span>{memberInfo?.contact_number}</span>
+              {locale.contact_number}: <span>{memberInfo?.contact_number}</span>
             </li>
             <li>
-              ایمیل : <span>{memberInfo?.email}</span>
+              {locale.email}: <span>{memberInfo?.email}</span>
             </li>
           </ul>
         </Col>
@@ -132,10 +132,10 @@ function MemberInfo({ classes }: Props) {
           <div className={[classes.card, classes.table].join(" ")}>
             <div className={classes.flex}>
               <h5 className={classes.boxTitle}>
-                <Icon name="Users" /> لیست درخواست ها
+                <Icon name="Users" /> {locale.listOfRequests}
               </h5>
               <Input
-                placeholder={"جستجو بر اساس نام کاربری"}
+                placeholder={locale.search}
                 type="text"
                 suffix={<Icon name="Search" />}
               />

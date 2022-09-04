@@ -2,12 +2,12 @@ import { lazy } from "react";
 
 export const Pages = [
   {
-    title: "statistics",
+    title: "holidays",
     path: "/statistics",
     exact: true,
     icon: "",
-    render: () => lazy(() => import("pages/contacts")),
-    layout:true
+    render: () => lazy(() => import("pages/holidays")),
+    layout: true,
   },
   {
     title: "Dashboard",
@@ -15,7 +15,7 @@ export const Pages = [
     exact: true,
     icon: "",
     render: () => lazy(() => import("pages/dashboard")),
-    layout:true
+    layout: true,
   },
   {
     title: "members",
@@ -23,7 +23,7 @@ export const Pages = [
     exact: true,
     icon: "",
     render: () => lazy(() => import("pages/members")),
-    layout:true
+    layout: true,
   },
   {
     title: "members",
@@ -31,7 +31,15 @@ export const Pages = [
     exact: true,
     icon: "",
     render: () => lazy(() => import("pages/member")),
-    layout:true
+    layout: true,
+  },
+  {
+    title: "support",
+    path: "/support",
+    exact: true,
+    icon: "",
+    render: () => lazy(() => import("pages/support")),
+    layout: true,
   },
   {
     title: "settings",
@@ -39,7 +47,7 @@ export const Pages = [
     exact: true,
     icon: "",
     render: () => lazy(() => import("pages/settings")),
-    layout:true
+    layout: true,
   },
   {
     title: "Authenticated",
@@ -47,7 +55,7 @@ export const Pages = [
     exact: true,
     icon: "",
     render: () => lazy(() => import("pages/auth/login")),
-    layout:false
+    layout: false,
   },
   {
     title: "NotFound",
@@ -55,6 +63,6 @@ export const Pages = [
     exact: true,
     icon: "",
     render: () => lazy(() => import("pages/not-found")),
-    layout:true
+    layout: true,
   },
 ];

@@ -1,29 +1,31 @@
+import { locale } from "config/string";
+
 export const getBeautifulMonth = (month: number | string) => {
   switch (month) {
     case '01':
-      return 'فروردین';
+      return locale.farvardin;
     case '02':
-      return 'اردیبهشت';
+      return locale.ordibehesht;
     case '03':
-      return 'خرداد';
+      return locale.khordad;
     case '04':
-      return 'تیر';
+      return locale.tir;
     case '05':
-      return 'مرداد';
+      return locale.mordad;
     case '06':
-      return 'شهریور';
+      return locale.shahrivar;
     case '07':
-      return 'مهر';
+      return locale.mehr;
     case '08':
-      return 'آبان';
+      return locale.aban;
     case '09':
-      return 'آذر';
+      return locale.azar;
     case '10':
-      return 'دی';
+      return locale.dai;
     case '11':
-      return 'بهمن';
+      return locale.bahman;
     case '12':
-      return 'اسفند';
+      return locale.esfand;
     default:
       break;
   }

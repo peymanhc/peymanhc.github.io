@@ -1,37 +1,12 @@
 import React, { useState } from "react";
-import { Tabs} from "antd";
-
+import Table from "component/table";
 import style from "./style";
 import { locale } from "config/string";
-import Table from "component/table";
-
-const { TabPane } = Tabs;
 
 interface Props {
   classes: any;
 }
 function Contact({ classes }: Props) {
-  const [tabKey, setTabKey] = useState<string>("Ticket");
-  const generateComponent = () => {
-    switch (tabKey) {
-      case "Ticket":
-        return (
-          <div style={{marginTop:20}} >
-            <Table
-              columns={columns}
-              dataItems={keys}
-              data={data}
-              description={["جدول محاسبات "]}
-              columnsCountMobile={2}
-              columnsCount={7}
-            />
-          </div>
-        );
-      default:
-        return false;
-    }
-  };
-
   const keys = [
     {
       id: 0,
@@ -96,15 +71,14 @@ function Contact({ classes }: Props) {
   ];
   return (
     <div className={classes.root}>
-      <Tabs
-        defaultActiveKey="Ticket"
-        className={classes.tabs}
-        onTabClick={(activeKey) => setTabKey(activeKey)}
-      >
-        <TabPane tab={locale.appName} key="Ticket" />
-        <TabPane tab={locale.appName} key="a" />
-      </Tabs>
-      <div>{generateComponent()}</div>
+      <Table
+              columns={columns}
+              dataItems={keys}
+              data={data}
+              description={["جدول محاسبات "]}
+              columnsCountMobile={2}
+              columnsCount={7}
+            />
     </div>
   );
 }
