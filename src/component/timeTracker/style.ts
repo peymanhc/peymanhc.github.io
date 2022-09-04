@@ -16,10 +16,11 @@ const styles = (theme: any) => ({
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      border: `1px solid ${theme.palette.colors.green[200]}`,
+      border: `1px solid ${theme.palette.first[200]}`,
       width: 35,
       height: 35,
       fontSize: 16,
+      color: theme.palette.first[900]
     },
   },
   button: {
@@ -31,32 +32,23 @@ const styles = (theme: any) => ({
     fontSize: 16,
   },
   start: {
-    backgroundColor: theme.palette.colors.green[50],
-    border: `1px solid ${theme.palette.colors.green[200]}`,
+    backgroundColor: theme.palette.first[50],
+    border: `1px solid ${theme.palette.first[200]}`,
+    color:theme.palette.primary
   },
   stop: {
     backgroundColor: theme.palette.colors.red[900],
     border: `1px solid ${theme.palette.colors.red[200]}`,
     color: theme.palette.white,
   },
-  resume: {
-    backgroundColor: theme.palette.colors.blue[100],
-    border: `1px solid ${theme.palette.colors.blue[100]}`,
-    color: theme.palette.white,
-  },
   displaystart: {
     "& span": {
-      border: `1px solid ${theme.palette.colors.green[200]}`,
+      border: `1px solid ${theme.palette.first[200]}`,
     },
   },
   displaystop: {
     "& span": {
       border: `1px solid ${theme.palette.colors.red[900]}`,
-    },
-  },
-  displayresume: {
-    "& span": {
-      border: `1px solid ${theme.palette.colors.blue[100]}`,
     },
   },
 });

@@ -12,6 +12,12 @@ class Actions {
       payload: value,
     };
   }
+  themeColor(value: any) {
+    return {
+      type: types.THEME_COLOR,
+      payload: value,
+    };
+  }
 }
 
 const AppActions = new Actions();

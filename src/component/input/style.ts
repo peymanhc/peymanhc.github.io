@@ -6,7 +6,7 @@ const styles = (theme: any) => ({
       background: theme.palette.colors.white,
       '&:focus-within': {
         background: theme.palette.colors.white,
-        border: `1px solid ${theme.palette.colors.green[200]}`,
+        border: `1px solid ${theme.palette.first[200]}`,
         boxShadow: 'none !important',
       },
       borderRadius: 4,
@@ -15,12 +15,12 @@ const styles = (theme: any) => ({
       border: `1px solid ${theme.palette.colors.grey[100]}`,
       '&:focus': {
         background: theme.palette.white,
-        border: `1px solid ${theme.palette.colors.green[100]}`,
+        border: `1px solid ${theme.palette.first[100]}`,
         boxShadow: 'none !important',
       },
       '&:hover': {
         background: theme.palette.white,
-        border: `1px solid ${theme.palette.colors.green[400]} !important`,
+        border: `1px solid ${theme.palette.first[400]} !important`,
         boxShadow: 'none !important',
       },
       '& .ant-input-number-input-wrap': {

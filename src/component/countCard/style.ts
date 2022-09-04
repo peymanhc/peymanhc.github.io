@@ -15,7 +15,7 @@ const styles = (theme: any) => ({
   icon: {
     fontSize: 25,
     color: `${theme.palette.primary}`,
-    backgroundColor: `${theme.palette.colors.green[50]}`,
+    backgroundColor: `${theme.palette.first[50]}`,
     borderRadius: "50%",
     width: 50,
     height: 50,

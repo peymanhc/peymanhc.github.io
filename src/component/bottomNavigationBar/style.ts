@@ -136,12 +136,12 @@ const styles = (theme: any) => ({
       transition: "all 0.3s ease-in-out",
       top: 0,
       "&:active": {
-        backgroundColor: `${theme.palette.colors.green[100]}`,
+        backgroundColor: `${theme.palette.first[100]}`,
       },
     },
     "&.ant-menu-item-selected": {
       top: -25,
-      backgroundColor: `${theme.palette.colors.green[100]} !important`,
+      backgroundColor: `${theme.palette.first[100]} !important`,
       borderColor: "transparent !important",
       borderRadius: "50px",
       transition: "all 0.3s ease-in-out",

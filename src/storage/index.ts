@@ -1,6 +1,6 @@
 import crypto from 'provider/crypto';
 
-const prefix = 'ipp-';
+const prefix = 'dashboard-';
 
 const shouldParse = (data: any) =>
   data && data[0] && (data[0] === '{' || data[0] === '[');

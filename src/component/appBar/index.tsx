@@ -27,10 +27,13 @@ const AppBar = (props: any) => {
         <UserOutlined />
         <Typography>پروفایل</Typography>
       </Menu.Item>
+      <a href="/settings">
       <Menu.Item key="2">
-        <SettingOutlined />
-        <Typography>تنظیمات</Typography>
-      </Menu.Item>
+     
+          <SettingOutlined />
+          <Typography>تنظیمات</Typography>
+  
+      </Menu.Item>      </a>
       <Menu.Item key="3">
         <InfoCircleOutlined />
         <Typography>قوانین</Typography>

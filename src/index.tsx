@@ -11,12 +11,14 @@ import jalaliday from 'jalaliday';
 
 import { Theme } from './provider/theme';
 import App from './App';
+import { read } from 'storage';
 
 dayjs.extend(jalaliday);
 
+const themeColor = read("theme");
 ReactDOM.render(
   <Provider store={appStore}>
-    <Theme theme="dark" >
+    <Theme theme={themeColor} >
       <ConfigProvider locale={fa_IR} direction="rtl">
         <App />
       </ConfigProvider>

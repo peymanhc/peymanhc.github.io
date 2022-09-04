@@ -19,7 +19,7 @@ const App = (props: any) => {
     typeof window !== "undefined" && window.innerWidth
   );
 
-  const { isMobileView } = useApp();
+  const { isMobileView, changeTheme } = useApp();
 
   useEffect(() => {
     function handleResize() {

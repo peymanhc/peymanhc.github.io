@@ -45,7 +45,7 @@ const styles = (theme: any) => ({
       alignItems: "center",
       justifyContent: "center",
       color: theme.palette.primary,
-      backgroundColor: theme.palette.colors.green[100],
+      backgroundColor: theme.palette.first[100],
     },
   },
   flex:{

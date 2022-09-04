@@ -71,7 +71,7 @@ const styles = (theme: any) => ({
                 borderColor: theme.palette.primary,
                 border: `1px solid ${theme.palette.primary}`,
                 borderRadius: 4,
-                backgroundColor:theme.palette.colors.green[50]
+                backgroundColor:theme.palette.first[50]
               },
             },
             '& .ant-picker-cell-inner': {

@@ -34,6 +34,14 @@ export const Pages = [
     layout:true
   },
   {
+    title: "settings",
+    path: "/settings",
+    exact: true,
+    icon: "",
+    render: () => lazy(() => import("pages/settings")),
+    layout:true
+  },
+  {
     title: "Authenticated",
     path: "/auth/login",
     exact: true,

@@ -16,8 +16,8 @@ const styles = (theme: any) => ({
   pcon: {
     width: 370,
     height: 420,
-    border: `1px solid ${theme.palette.colors.green[300]}`,
-    boxShadow: `2px 1px 5px ${theme.palette.colors.green[100]}`,
+    border: `1px solid ${theme.palette.first[300]}`,
+    boxShadow: `2px 1px 5px ${theme.palette.first[100]}`,
     borderRadius: 15,
     display: "flex",
     justifyContent: "center",
@@ -36,7 +36,7 @@ const styles = (theme: any) => ({
     borderRadius: 10,
     border: "none",
     "&:focus": {
-      outline: `2px solid ${theme.palette.colors.green[300]}`,
+      outline: `2px solid ${theme.palette.first[300]}`,
     },
   },
 
@@ -46,7 +46,7 @@ const styles = (theme: any) => ({
     marginBottom: 10,
     border: theme.palette.primary,
     borderRadius: 10,
-    backgroundColor: theme.palette.colors.green[800],
+    backgroundColor: theme.palette.first[800],
     color: "white",
     transition: "all 600ms ease-out",
     cursor: "pointer",

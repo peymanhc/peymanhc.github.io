@@ -14,7 +14,7 @@ const styles = (theme: any) => ({
     justifyContent: "flex-start",
     minWidth: 230,
     borderRadius: 0,
-    border: `1px solid ${theme.palette.colors.grey[200]}`,
+    border: `1px solid ${theme.palette.colors.grey[200]} !important`,
   },
   menuItem: {
     display: "flex",
@@ -39,7 +39,7 @@ const styles = (theme: any) => ({
     },
     "&.ant-menu-item": {
       "&:active": {
-        backgroundColor: `${theme.palette.colors.green[100]}`,
+        backgroundColor: `${theme.palette.first[100]}`,
       },
     },
     "&.ant-menu-item-selected": {

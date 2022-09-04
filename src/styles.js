@@ -120,7 +120,7 @@ const styles = (theme) => ({
   root: {},
   "@media screen and (max-width:992px)": {
     app: {
-      background: theme.palette.colors.green[25],
+      background: theme.palette.first[25],
     },
     root: { margin: `calc(${theme.palette.hedaerMobileSize}) 0` },
   },

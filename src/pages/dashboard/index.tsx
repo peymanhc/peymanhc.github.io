@@ -9,6 +9,8 @@ import TimeTracker from "component/timeTracker";
 import { getDate } from "helpers/date";
 import useDashboard from "hooks/dashboard.hook";
 import React, { useEffect, useState } from "react";
+import {useTheme} from 'react-jss'
+
 import { timeDiffrenced } from "utils/timeDifference";
 import style from "./style";
 
@@ -22,6 +24,7 @@ function Dashboard({ classes }: Props) {
   const [lineChart, setLineChart] = useState([]);
   const [trackList, setTrackList] = useState([]);
   const [visible, setVisible] = useState(false);
+  const theme = useTheme()
   const [filterTrackList, setFilterTrackList] = useState(null);
   const { getBarChart,getLineChart } = useDashboard();
   useEffect(() => {
@@ -39,7 +42,7 @@ function Dashboard({ classes }: Props) {
             item.status == 0
               ? "#FF4560"
               : item.status == 1
-              ? "#b6ddb6"
+              ? theme.palette.first[25]
               : "#FEB019",
         };
       });

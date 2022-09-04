@@ -14,7 +14,7 @@ const styles = (theme: any) => ({
         display: "flex",
         flexDirection: "column",
         width: "100%",
-        borderBottom: "1px solid #e2e6e9",
+        borderBottom:  `1px solid ${theme.palette.colors.grey[100]} !important`,
         position: "relative",
       },
       titleBar: {

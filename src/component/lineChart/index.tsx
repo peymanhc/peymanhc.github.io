@@ -1,6 +1,8 @@
 import style from "./style";
 import ReactApexChart from "react-apexcharts";
+import { useTheme } from "react-jss";
 const LineChart = ({ data, timeRange, height, classes }: any) => {
+  const theme = useTheme()
   const options = {
     chart: {
       type: "bar",
@@ -44,9 +46,8 @@ const LineChart = ({ data, timeRange, height, classes }: any) => {
     },
     colors: [
       function ({ value, seriesIndex, w }) {
-        console.log(seriesIndex, value);
         if (seriesIndex == 0) {
-          return "#b6ddb6";
+          return theme.palette.first[25];
         } else if (seriesIndex == 1) {
           return "#FEB019";
         } else {

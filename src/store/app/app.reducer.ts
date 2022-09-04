@@ -9,10 +9,12 @@ import { merge } from "ramda";
 
 export interface AppConfig {
   isMobile: boolean;
+  themeColor:string;
 }
 
 export const initialState = {
   isMobile: false,
+  themeColor:"green",
 };
 
 const reducer: React.Reducer<AppConfig, Action> = (
@@ -24,6 +26,10 @@ const reducer: React.Reducer<AppConfig, Action> = (
     case types.ISMOBILE:
       return update({
         isMobile: action.payload,
+      });
+    case types.THEME_COLOR:
+      return update({
+        themeColor: action.payload,
       });
     default:
       return state;

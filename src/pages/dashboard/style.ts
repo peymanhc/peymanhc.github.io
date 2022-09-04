@@ -150,7 +150,7 @@ const styles = (theme: any) => ({
     "& i":{
       fontSize: 22,
       color: `${theme.palette.primary}`,
-      backgroundColor: `${theme.palette.colors.green[50]}`,
+      backgroundColor: `${theme.palette.first[50]}`,
       borderRadius: "50%",
       width: 45,
       height: 45,
