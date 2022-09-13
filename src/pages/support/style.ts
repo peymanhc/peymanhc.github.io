@@ -3,15 +3,22 @@ import style from "provider/style";
 const styles = (theme: any) => ({
   root: {
     padding: 20,
-    maxWidth:1600,
-  }, 
+    maxWidth: 1600,
+  },
+  wrapper: {
+    padding: [0, 20, 10, 20],
+    border: `1px solid ${theme.palette.colors.grey[200]}`,
+  },
   tabs: {
     height: "90%",
-
   },
   "@media (max-width: 992px)": {
     root: {
       padding: 0,
+    },
+    wrapper: {
+      padding: 0,
+      border:0
     },
     tabs: {
       "& .ant-tabs-nav-list": {

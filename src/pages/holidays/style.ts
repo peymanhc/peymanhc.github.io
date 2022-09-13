@@ -9,7 +9,7 @@ const styles = (theme: any) => ({
     height: "90%",
 
   },
-  "@media (max-width: 992px)": {
+  "@media screen and (max-width: 992px)": {
     root: {
       padding: 0,
     },

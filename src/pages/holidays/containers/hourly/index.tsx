@@ -2,85 +2,99 @@ import React, { useState } from "react";
 import Table from "component/table";
 import style from "./style";
 import { locale } from "config/string";
+import Icon from "component/icon";
+import dayjs from "dayjs";
 
 interface Props {
   classes: any;
 }
-function Contact({ classes }: Props) {
+function Hourly({ classes }: Props) {
   const keys = [
     {
-      id: 0,
-      data: "date",
-    },
-    {
       id: 1,
-      data: "volume",
+      data: "startTime",
+      render(value: string, record: any) {
+        return (
+          <div className={classes.date} >
+            {dayjs(value).calendar("jalali").format("YYYY/MM/DD , HH:mm:ss")}
+          </div>
+        )}
     },
     {
       id: 2,
-      data: "price",
+      data: "endTime",
+      render(value: string, record: any) {
+        return (
+          <div className={classes.date}> 
+           {dayjs(value).calendar("jalali").format("YYYY/MM/DD , HH:mm:ss")}
+          </div>
+        )}
     },
     {
       id: 3,
-      data: "val",
+      data: "userId",
     },
     {
       id: 4,
-      data: "as",
+      data: "approvedBy",
+    },
+    {
+      id: 5,
+      data: "approved",
+      render(value: string, record: any) {
+        return (
+          <Icon
+            className={value == 1 ? classes.successIcon : classes.rejectedIcon}
+            name={value == 1 ? "Confirmed" : "Rejected"}
+          />
+        );
+      },
     },
   ];
   const columns = [
     {
-      id: 0,
-      title: "تاریخ",
-    },
-    {
       id: 1,
-      title: "عنوان ۱",
+      title: "زمان شروع",
     },
     {
       id: 2,
-      title: "عنوان ۲",
+      title: "زمان پایان",
     },
     {
       id: 3,
-      title: "عنوان ۲۳",
+      title: "کد کاربر",
     },
     {
       id: 4,
-      title: "عنوان ۴",
+      title: "تایید شده توسط",
+    },
+    {
+      id: 5,
+      title: "وضعیت",
     },
   ];
   const data = [
     {
-      id: 1,
-      date: "data 2",
-      volume: "یک مقدار تستی",
-      price: "item?.price",
-      val: "price",
-      as: "price",
-    },
-    {
-      id: 2,
-      date: "date",
-      volume: "volume",
-      price: "price",
-      val: "price",
-      as: "price",
+      id: 0,
+      userId: "1Afs587q",
+      endTime: "2022-09-03 , 16:18:00",
+      startTime: "2022-09-03 , 14:20:00",
+      approved: 1,
+      approvedBy: "محمد مهدی منیری",
     },
   ];
   return (
     <div className={classes.root}>
       <Table
-              columns={columns}
-              dataItems={keys}
-              data={data}
-              description={["جدول محاسبات "]}
-              columnsCountMobile={2}
-              columnsCount={7}
-            />
+        columns={columns}
+        dataItems={keys}
+        data={data}
+        description={["جدول مرخصی های ساعتی"]}
+        columnsCountMobile={2}
+        columnsCount={7}
+      />
     </div>
   );
 }
 
-export default style(Contact);
+export default style(Hourly);

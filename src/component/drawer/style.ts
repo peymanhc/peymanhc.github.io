@@ -93,10 +93,8 @@ const styles = (theme: any) => ({
     bottom: "unset",
     background: "transparent",
   },
-  "@media screen and (max-width:767px)": {
-    display: "none",
-  },
-  "@media screen and (max-width:480px)": {
+
+  "@media screen and (max-width:992px)": {
     sideMenu: {
       display: "none",
     },

@@ -43,11 +43,6 @@ const LineChart = ({ data, timeRange, height, classes }: any) => {
         locale.esfand,
       ],
     },
-    yaxis: {
-      title: {
-        text: "$ (thousands)",
-      },
-    },
     colors: [
       function ({ value, seriesIndex, w }) {
         if (seriesIndex == 0) {

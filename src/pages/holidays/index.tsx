@@ -11,8 +11,8 @@ const { TabPane } = Tabs;
 interface Props {
   classes: any;
 }
-function Contact({ classes }: Props) {
-  const [tabKey, setTabKey] = useState<string>("Ticket");
+function Holidays({ classes }: Props) {
+  const [tabKey, setTabKey] = useState<string>("daily");
   const generateComponent = () => {
     switch (tabKey) {
       case "daily":
@@ -26,7 +26,7 @@ function Contact({ classes }: Props) {
   return (
     <div className={classes.root}>
       <Tabs
-        defaultActiveKey="Ticket"
+        defaultActiveKey="daily"
         className={classes.tabs}
         onTabClick={(activeKey) => setTabKey(activeKey)}
       >
@@ -38,4 +38,4 @@ function Contact({ classes }: Props) {
   );
 }
 
-export default style(Contact);
+export default style(Holidays);

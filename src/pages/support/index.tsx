@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Tabs} from "antd";
 import style from "./style";
 import { locale } from "config/string";
+import Ticket from "./containers/ticket";
 
 const { TabPane } = Tabs;
 
@@ -14,9 +15,7 @@ function Support({ classes }: Props) {
     switch (tabKey) {
       case "Ticket":
         return (
-          <div style={{marginTop:20}} >
-           
-          </div>
+          <Ticket />
         );
       default:
         return false;
@@ -25,6 +24,7 @@ function Support({ classes }: Props) {
 
   return (
     <div className={classes.root}>
+      <div className={classes.wrapper} >
       <Tabs
         defaultActiveKey="Ticket"
         className={classes.tabs}
@@ -33,6 +33,7 @@ function Support({ classes }: Props) {
         <TabPane tab={locale.tickets} key="Ticket" />
       </Tabs>
       <div>{generateComponent()}</div>
+      </div>
     </div>
   );
 }

@@ -199,16 +199,33 @@ const styles = (theme: any) => ({
   "@media (max-width: 992px)": {
     root: {
       flexDirection: "column",
-      padding:15
+      padding:10,
+      gridGap:10,
+      marginBottom:60,
+      alignItems:"center"
+    },
+    card:{
+      maxWidth:"100%",
+    },
+    calender:{
+      maxWidth:"100%",
+    },
+    removeActions:{
+      gridGap:10,
+    },
+    track:{
+      gridGap:10,
     },
     wrapper: {
       width: "100% !important",
+      gridGap:10,
     },
     chart:{
       padding:0,
       height:100,
     },
     tracker:{
+      gridGap:10,
       flexDirection:"column"
     }
   }

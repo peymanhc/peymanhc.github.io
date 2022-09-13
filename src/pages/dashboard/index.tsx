@@ -89,7 +89,7 @@ function Dashboard({ classes }: Props) {
   };
   return (
     <div className={classes.root}>
-      <Col sm={16} xs={24} className={classes.wrapper}>
+      <Col lg={16} xs={24} className={classes.wrapper}>
         <div className={classes.tracker}>
           <div className={classes.track}>
             <div className={classes.timeTracker}>
@@ -181,7 +181,7 @@ function Dashboard({ classes }: Props) {
           <LineChart data={lineChart} />
         </div>
       </Col>
-      <Col sm={8} xs={24} className={classes.wrapper}>
+      <Col lg={8} xs={24} className={classes.wrapper}>
         <div className={classes.card}>
           <CountCard
             icon={"Notification"}

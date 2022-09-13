@@ -72,6 +72,6 @@ const FA_IR = {
   logout:"خروج",
   changeLanguage:"تغییر زبان",
   daily:"روزانه",
-  hourly:"ساعتی"
+  hourly:"ساعتی",
 };
 export default FA_IR;
